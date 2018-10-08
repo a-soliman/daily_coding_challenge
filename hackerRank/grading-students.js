@@ -52,3 +52,26 @@ Student  received a , and the next multiple of  from  is . Since , the student's
 Student  received a grade below , so the grade will not be modified and the student's final grade is .
 */
 
+function gradingStudents(grades) {
+    let result = [];
+      grades.forEach(grade => {
+        if ( grade >= 5 && grade < 38 ) result.push(grade);
+        else if ( grade >= 38 ) {
+           const roundedGrade = roundUp(grade);
+           result.push(roundedGrade);
+         }
+      });
+    return result;
+  }
+  
+  function roundUp(grade) {
+    if ( grade % 5 === 0 ) return grade;
+    for ( let i = 1; i < 3; i++ ) {
+      let candidate = grade + i;
+      if ( candidate % 5 === 0 ) return candidate;
+    }
+    return grade;
+  }
+  
+  const grades = [23,80,96, 18, 73, 78, 60, 60, 15, 45, 15, 10, 5, 46, 87, 33, 60, 14, 71, 65, 2, 5, 97, 0];
+  console.log(gradingStudents(grades));
