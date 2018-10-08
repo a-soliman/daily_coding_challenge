@@ -47,21 +47,21 @@ The proportions of occurrence are positive: , negative:  and zeros: .
 */
 
 function plusMinus(arr) {
-    let pos = 0;
-    let neg = 0;
-    let zeros = 0;
+	let pos = 0;
+	let neg = 0;
+	let zeros = 0;
     
-    for ( let i = 0; i < arr.length; i++ ) {
-      let currentItem = arr[i];
+	for ( let i = 0; i < arr.length; i++ ) {
+		let currentItem = arr[i];
       
-      if ( currentItem === 0 ) zeros++;
-      else if ( currentItem > 0 ) pos++;
-      else neg++;
-    }
+		if ( currentItem === 0 ) zeros++;
+		else if ( currentItem > 0 ) pos++;
+		else neg++;
+	}
     
-    console.log((pos / arr.length).toFixed(5));
-    console.log((neg / arr.length).toFixed(5));
-    console.log((zeros / arr.length).toFixed(6));
+	console.log((pos / arr.length).toFixed(5));
+	console.log((neg / arr.length).toFixed(5));
+	console.log((zeros / arr.length).toFixed(6));
 }
 
 const arr = [-4, 3, -9, 0, 4, 1];
