@@ -61,3 +61,9 @@ Only one fruit (the second apple) falls within the region between  and , so we p
 Only the second orange falls within the region between  and , so we print  as our second line of output.
 */
 
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    console.log(apples.filter(location => location + a >= s && location + a <= t).length);
+    console.log(oranges.filter(location => location + b >= s && location + b <= t).length);
+}
+  
+console.log(countApplesAndOranges(7,11,5,15,[-2, 2, 1],[5, -6]));
