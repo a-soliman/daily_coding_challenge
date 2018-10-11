@@ -36,3 +36,21 @@ Here are the  valid pairs when :
 
 
 */
+
+function divisibleSumPairs(n, k, ar) {
+    let sum = 0;
+    for (let i = 0; i < ar.length; i++ ) {
+      let current = ar[i];
+      
+      for ( let j = i+1; j < ar.length; j++ ){
+        let candidate = ar[j];
+        if ( (current + candidate ) % k === 0 ) {
+          sum++;
+        }
+      }
+    }
+  
+  return sum;
+  }
+  
+  console.log(divisibleSumPairs(6, 3, [1, 3, 2, 6, 1, 2]));
