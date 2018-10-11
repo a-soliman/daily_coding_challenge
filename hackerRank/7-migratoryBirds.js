@@ -58,3 +58,39 @@ Type :
 Type : 
 Two types have a frequency of , and the lower of those is type .
 */
+
+function migratoryBirds(arr) {
+    let hash = {};
+    
+     arr.forEach(type => {
+       if ( !hash[type] ) hash[type] = 0;
+       hash[type]++;
+     });
+    
+    // get the heightest number
+    let heighestNum = 0;
+    for ( const key in hash ) {
+      if ( hash[key] > heighestNum ) heighestNum = hash[key];
+    }
+    
+    // delete all int with less num;
+    for ( const key in hash ) {
+      if ( hash[key] < heighestNum ) delete hash[key];
+    }
+    
+    let resArray = [];
+    for ( const key in hash ) {
+      if (hash[key] === heighestNum ) {
+        resArray.push(Number(key));
+      }
+    }
+    let s = resArray[0];
+    for ( let i = 1; i < resArray.length; i++ ) {
+      if (resArray[i] < s )s = resArray[i]; 
+    }
+    return s;
+  
+  
+  }
+  
+  console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]));
