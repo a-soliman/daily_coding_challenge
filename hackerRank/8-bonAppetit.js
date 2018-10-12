@@ -47,3 +47,17 @@ Bon Appetit
 Explanation 1 
 Anna didn't eat item , but she shared the rest of the items with Brian. The total cost of the shared items is  and, split in half, the cost per person is . Because , we print Bon Appetit on a new line.
 */
+
+function bonAppetit(bill, k, b) {
+    bill.splice(k, 1);
+    let fairTotal = bill.reduce((a,b) => {
+      return a + b;
+    }) /2;
+    
+    if ( fairTotal === b ) console.log('Bon Appetit');
+    else console.log(b - fairTotal);
+  
+  }
+  
+  console.log(bonAppetit([3, 10, 2, 9], 1, 12));
+  console.log(bonAppetit([3, 10, 2, 9], 1, 7));
