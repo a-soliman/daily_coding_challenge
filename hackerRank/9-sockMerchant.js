@@ -36,3 +36,22 @@ sock.png
 
 John can match three pairs of socks.
 */
+
+function sockMerchant(n, ar) {
+    let pairs = {};
+    let totalPairs = 0;
+    
+    ar.forEach(sock => {
+      if ( !pairs[sock] ) pairs[sock] = 0;
+      pairs[sock]++;
+    });
+    
+    for ( let key in pairs ) {
+      totalPairs += Math.floor(pairs[key] / 2);
+    }
+    
+    return totalPairs;
+  
+  }
+  
+  console.log(sockMerchant(9, [10, 20, 20, 10, 10, 30, 50, 10, 20]));
