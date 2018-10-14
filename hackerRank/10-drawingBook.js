@@ -65,3 +65,24 @@ Untitled Diagram(5).png
 
 Because we want to print the minimum number of page turns, we print  as our answer.
  */
+
+ function pageCount(n, p) {
+   let pages = [[1]];
+   for ( let i = 2; i <= n; i = i+2 ) {
+     let fitstpage = i;
+     let lastPage = i+1 <= n ? i+1 : undefined;
+     let newSet = [];
+     newSet.push(fitstpage);
+     if ( lastPage ) newSet.push(lastPage);
+     pages.push(newSet)
+   }
+  for ( let i = 0; i < pages.length; i++ ) {
+    let currentView = pages[i];
+    if ( currentView.indexOf(p) !== -1 ) {
+      let res = i;
+      let fromLast = pages.length - (res +1);
+      return res < fromLast ? res : fromLast;
+    }
+  }
+}
+console.log(pageCount(7, 6));
