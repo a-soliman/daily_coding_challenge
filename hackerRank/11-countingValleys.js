@@ -43,3 +43,20 @@ _/\      _
 He enters and leaves one valley.
 
 */
+
+function countingValleys(n, s) {
+    let atSeaLevelCount = 0;
+    let position = 0;
+    
+    for ( let i = 0; i < s.length; i++ ) {
+      const direction = s[i];
+      
+      if ( direction === 'U' ) position++;
+      else position--;
+      
+      if ( position === 0 && direction === 'U') atSeaLevelCount++;
+    }
+    return atSeaLevelCount;
+  
+  }
+  console.log(countingValleys(8, 'UDDDUDUU'));
