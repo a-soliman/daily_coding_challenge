@@ -48,3 +48,13 @@ Query 1: In this query, cats  and  reach mouse  at the exact same time: image
 Because the mouse escapes, we print Mouse C on a new line.
 
 */
+
+function catAndMouse(x, y, z) {
+    let a = Math.abs(x-z);
+    let b = Math.abs(y-z);
+    
+    if ( a == b ) return 'Mouse C';
+    if ( a < b ) return 'Cat A';
+    if ( a > b ) return 'Cat B';
+  }
+  console.log(catAndMouse(1,2,3));
