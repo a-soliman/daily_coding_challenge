@@ -42,3 +42,47 @@ Explanation 1
 
 We choose the following multiset of integers from the array: . Each pair in the multiset has an absolute difference  (i.e., , , and ), so we print the number of chosen integers, , as our answer.
  */
+
+function pickingNumbers(a) {
+    let hash = {};
+    a.forEach(num => {
+      if ( !hash[num] ) {
+        hash[num] = [
+          getLower(num, a),
+          getHeigher(num, a)
+        ];
+      }
+    });
+    
+    let result = getLongestSub(hash);
+    return result;
+  }
+  
+  function getHeigher(num, a) {
+      let count = 0;
+      a.forEach(item => {
+        if ( item >= num && item - num <= 1 ) count++;
+      });
+    return count;
+  }
+  
+  function getLower(num, a) {
+    let count = 0;
+    a.forEach(item => {
+      if ( num >= item && num - item <= 1 ) count++;
+    });
+    return count;
+  }
+  
+  function getLongestSub(hash) {
+    let result = 0;
+    
+    for ( let key in hash ) {
+      let current = hash[key];
+      current.forEach(item => {
+         if ( item > result ) result = item;
+      });
+    }
+    return result;
+  }
+  console.log(pickingNumbers([1, 2, 2, 3, 1, 2]));
