@@ -53,3 +53,25 @@ In the second case (), the tree doubles in height and is  meters tall after the 
 
 In the third case (), the tree doubles its height in spring (, ), then grows a meter in summer (, ), then doubles after the next spring (, ), and grows another meter after summer (, ). Thus, at the end of 4 cycles, its height is  meters.
 */
+
+// Complete the utopianTree function below.
+function utopianTree(n) {
+    let season = 'spring';
+    let treeLength = 1;
+    for ( let i = 0; i < n; i++ ) {
+      if ( season == 'spring' ) {
+        treeLength = treeLength * 2;
+        season = 'summer';
+      } else {
+        treeLength += 1;
+        season = 'spring';
+      }
+    }
+    return treeLength;
+  }
+  
+  const testCases = [3, 0, 1, 4];
+  
+  testCases.forEach(testCase => {
+    console.log(utopianTree(testCase));
+  });
