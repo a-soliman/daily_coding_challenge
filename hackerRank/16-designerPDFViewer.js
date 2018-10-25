@@ -54,3 +54,28 @@ Explanation 1
 
 The tallest letter in  is  at . The selection area for this word is .
 */
+
+function designerPdfViewer(h, word) {
+    let letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    let heighestLetterIndex = letters.indexOf(word[0]);
+    let heighestLetterHeight = h[heighestLetterIndex];
+    
+    /* Get the heighest letter height */
+    for ( let i = 0; i < word.length; i++ ) {
+      const letter = word[i];
+      const index = letters.indexOf(letter);
+      const height = h[index];
+      heighestLetterHeight = Math.max(heighestLetterHeight, height);
+    }
+    
+    return heighestLetterHeight * word.length;
+  
+  }
+  const h1 = [1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5];
+  const word1 = 'abc';
+  
+  const h2 = [1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7];
+  const word2 = 'zaba';
+  
+  console.log(designerPdfViewer(h1, word1));
+  console.log(designerPdfViewer(h2, word2));
