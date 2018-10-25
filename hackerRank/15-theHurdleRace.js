@@ -55,3 +55,22 @@ image
 Because he can already jump all the hurdles, Dan needs to drink  doses.
 */
 
+function hurdleRace(k, height) {
+    let heighestJump = height[0];
+    
+    /* Get heights jump*/
+    height.forEach(jump => {
+      if ( jump > heighestJump ) heighestJump = jump; 
+    });
+    return heighestJump > k ? heighestJump - k : 0; 
+  }
+  
+  const k1 = 4;
+  const height1 = [1, 6, 3, 5, 2];
+  
+  const k2 = 7;
+  const height2 = [2, 5, 4, 5, 2];
+  
+  console.log(hurdleRace(k1, height1));
+  console.log(hurdleRace(k2, height2));
+  
