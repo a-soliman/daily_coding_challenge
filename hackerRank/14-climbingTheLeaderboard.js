@@ -125,3 +125,47 @@ Sample Output 2
 2
 1
 */
+
+function climbingLeaderboard(scores, alice) {
+  
+    scores = Array.from(new Set(scores));
+    let result = [];
+    for ( let i = 0; i < alice.length; i++ ) {
+      let score = alice[i];
+  
+      if ( score < scores[scores.length-1]) {
+        result.push(scores.length + 1);
+        continue;
+      }
+      
+      if ( score >= scores[0] ) {
+        result.push(1);
+        continue;
+      }
+      
+      let start = 0, end = scores.length-1;
+      while ( end - start >= 0) {
+        let mid = Math.floor((end + start) /2);
+        let value = scores[mid];
+        if ( score >= value && score < scores[mid-1] ) {
+          result.push(mid +1);
+          break;
+        }
+        if ( score >= value && score <= scores[mid-1] ) {
+          result.push(mid);
+          break;
+        }
+        else if ( score > scores[mid-1] ) end = mid-1;
+        else start = mid+1;
+      }
+    }
+   
+    
+    return result;
+  }
+  
+  let scores = [100,90,90,80,75,60];
+  let alice = [50,65,77,90,102];
+  console.log(climbingLeaderboard(scores, alice));
+  
+  
